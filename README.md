@@ -8,7 +8,7 @@ Manual build is trivial if you don't want to nix.
 
 Install scala-cli (see above link) for your platform.
 
-Note use JDK 8 or 11, later versions will likely not work dure to ZetaSql JNI methods.
+Note use JDK 8 or 11, later versions will likely not work due to ZetaSql JNI methods.
 
 Simple local package build :
 
@@ -43,4 +43,3 @@ LIMIT 100;
 ```
 
 See scala-cli documentation for options to build docker and scala-native images.
-
