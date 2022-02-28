@@ -1,0 +1,6 @@
+zetafmt
+.bsp/
+.metals/
+.scala-build
+.vscode
+
