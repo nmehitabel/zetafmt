@@ -12,6 +12,7 @@
 
   outputs = { self, nixpkgs, flake-utils, ... }:
     let
+
       forSystem = system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
@@ -21,11 +22,10 @@
           devShell = pkgs.mkShell {
             name = "scala-dev-shell";
             buildInputs = [
-              pkgs.gnumake
               jdk
               pkgs.coursier
               pkgs.sbt
-	      pkgs.scala-cli
+              pkgs.scala-cli
             ];
             shellHook = ''
               JAVA_HOME="${jdk}"
