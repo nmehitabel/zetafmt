@@ -1,6 +1,7 @@
 zetafmt
 .bsp/
 .metals/
+.direnv/
 .scala-build
 .scala
 .vscode

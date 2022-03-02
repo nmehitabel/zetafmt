@@ -26,6 +26,7 @@
               pkgs.coursier
               pkgs.sbt
               pkgs.scala-cli
+              pkgs.zlib
             ];
             shellHook = ''
               JAVA_HOME="${jdk}"
