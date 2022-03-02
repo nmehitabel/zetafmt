@@ -13,7 +13,8 @@ Note use JDK 8 or 11, later versions will likely not work due to ZetaSql JNI met
 Simple local package build :
 
 ```bash
-scala-cli package zetafmt.scala -f -o zetafmt
+scala-cli package zetafmt.scala -f -o
+
 ```
 
 Then use zetafmt command with either stdin or a filename argument and the formatted output is printed to stdout.
@@ -42,8 +43,14 @@ ORDER BY 1, 2 DESC, t1_col3
 LIMIT 100;
 ```
 
-Local Docker builder
+Local Docker builder - again using jdk 11 base image
+
 ```bash
-scala-cli package -f --docker zetafmt.scala --docker-image-repository zeta-format
+scala-cli package zetafmt.scala --docker --docker-from adoptopenjdk/openjdk11 --docker-image-repository zeta-format
 ```
-See scala-cli documentation for further options to build docker and scala-native images.
+
+run with
+
+```bash
+docker run -i zeta-format:latest <good.sql
+```
