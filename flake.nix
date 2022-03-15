@@ -16,20 +16,22 @@
       forSystem = system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          jdk = pkgs.jdk11_headless;
+          jdk11 = pkgs.jdk11_headless;
+          jdk = pkgs.jdk17_headless;
         in
         {
           devShell = pkgs.mkShell {
             name = "scala-dev-shell";
             buildInputs = [
+              jdk11
               jdk
               pkgs.coursier
               pkgs.sbt
               pkgs.scala-cli
-              pkgs.zlib
             ];
             shellHook = ''
-              JAVA_HOME="${jdk}"
+              export JAVA_HOME="${jdk}"
+              export JAVA11_HOME="${jdk11}"
             '';
           };
         };

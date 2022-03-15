@@ -8,7 +8,7 @@ Manual build is trivial if you don't want to nix.
 
 Install scala-cli (see above link) for your platform.
 
-Note use JDK 8 or 11, later versions will likely not work due to ZetaSql JNI methods.
+Note use JDK 8 or 11 for packaging, later versions will likely not work due to ZetaSql JNI methods.
 
 Simple local package build :
 
@@ -53,4 +53,17 @@ run with
 
 ```bash
 docker run -i zeta-format:latest <good.sql
+```
+
+## Run On Nixos
+
+If a jvm for bloop is not specified then `scala-cli` will download it which will not run on nixos due to [fhs](https://nixos.wiki/wiki/Packaging/Binaries).
+
+Fortunately the smart devs of `scala-cli` allow you to specify pretty much anything necessary as command flags. JDK17 is required at the time of writing. See `flake.nix` for environment setup
+
+```bash
+# compile
+scala-cli compile zetafmt.scala --bloop-jvm='system|17'
+# package
+scala-cli package zetafmt.scala -f -o zetafmt --java-home ${JAVA11_HOME}
 ```
