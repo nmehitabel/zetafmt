@@ -1,6 +1,6 @@
 # Zeta Sql Formatter
 
-Little cli utility for formatting using Google [ZetaSql]https://github.com/google/zetasql
+Little cli utility for formatting using Google [ZetaSql](https://github.com/google/zetasql)
 
 Build with the estimable [scala-cli](https://scala-cli.virtuslab.org/)
 
@@ -66,4 +66,6 @@ Fortunately the smart devs of `scala-cli` allow you to specify pretty much anyth
 scala-cli compile zetafmt.scala --bloop-jvm='system|17'
 # package
 scala-cli package zetafmt.scala -f -o zetafmt --java-home ${JAVA11_HOME}
+# packge docker 
+scala-cli package zetafmt.scala -f --docker --docker-from adoptopenjdk/openjdk11 --docker-image-repository zeta-format --java-home ${JAVA11_HOME}
 ```
